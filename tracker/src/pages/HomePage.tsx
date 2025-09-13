@@ -1,50 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Header from "../components/Header";
 
 const HomePage: React.FC = () => {
   return (
     <div className="container">
-      <h1>Tarantula Tracker</h1>
-      <p style={{ marginBottom: '24px', color: '#6b7280' }}>
-        Track and manage your tarantula collection
-      </p>
+      <Header />
 
-      <nav style={{
-        padding: '16px 0',
-        borderBottom: '1px solid #e5e7eb',
-        marginBottom: '24px'
-      }}>
-        <Link to="/login" style={{
-          color: '#2563eb',
-          textDecoration: 'none',
-          padding: '8px 16px',
-          marginRight: '8px',
-          borderRadius: '6px',
-          transition: 'background-color 0.2s'
-        }}>Login / Register</Link>
-        <span style={{ margin: '0 8px', color: '#6b7280' }}>|</span>
-        <Link to="/users" style={{
-          color: '#2563eb',
-          textDecoration: 'none',
-          padding: '8px 16px',
-          marginRight: '8px',
-          borderRadius: '6px',
-          transition: 'background-color 0.2s'
-        }}>All Users</Link>
-        <span style={{ margin: '0 8px', color: '#6b7280' }}>|</span>
-        <Link to="/tarantulas" style={{
-          color: '#2563eb',
-          textDecoration: 'none',
-          padding: '8px 16px',
-          borderRadius: '6px',
-          transition: 'background-color 0.2s'
-        }}>Tarantulas</Link>
-      </nav>
-
-      <div style={{ marginTop: '32px' }}>
+      <main style={{ textAlign: 'center' }}>
         <h2>Welcome to Tarantula Tracker</h2>
+
+        <pre style={{
+          fontFamily: 'monospace',
+          fontSize: '12px',
+          color: '#a855f7',
+          textAlign: 'center',
+          marginBottom: '24px',
+          lineHeight: '1.2',
+          overflow: 'auto'
+        }}>
+{`⠀⠀⠀⠀⢱⣄⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣤⡎⠀⠀⠀⠀
+⠀⠀⠀⠀⣸⠏⢫⡉⠉⠙⠛⠙⣷⠀⠀⠀⠀⣼⢿⠛⠛⠉⢉⡽⠀⣧⠀⠀⠀⠀
+⠀⠀⠀⣰⠋⠀⠀⣹⣧⣆⣠⣀⡼⣷⡀⢀⣴⢿⣲⣤⣤⡤⡏⠀⠀⠘⣆⠀⠀⠀
+⠠⣄⡴⠃⠀⠀⣴⡿⠙⢿⣇⡀⠀⠹⣏⢿⠏⠀⠀⣁⡼⠁⢱⡀⠀⠀⠘⢦⣀⡤
+⠀⠈⢿⠻⢶⣶⠟⢁⣠⣾⠿⣿⣿⣯⣿⣯⠿⣿⣿⡿⣟⠀⠀⠑⣤⠤⠒⡿⠁⠀
+⠀⠀⠈⢧⠀⠹⡉⢻⣟⣻⣆⣩⣾⣍⣿⡿⣄⣾⣟⢀⣿⣶⠞⢉⠇⠀⣼⠃⠀⠀
+⠀⠀⠀⢸⡂⢀⣇⠀⣹⠉⠛⣿⣿⡿⢿⡿⣿⣿⣿⠋⣠⡿⡆⢸⠀⢰⡇⠀⠀⠀
+⠀⠀⠀⣸⡁⣼⣿⣿⣟⣷⣾⠿⣿⣦⠀⠀⣰⣿⣿⠿⣿⣻⣁⣘⣄⣼⣇⠀⠀⠀
+⠀⠀⠈⠛⠿⢮⡉⠒⠿⣋⠙⣷⣬⠿⣷⣿⢿⣇⣽⣿⣣⠔⠒⣹⣯⠟⠉⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⠙⢆⠀⠈⢆⣼⠟⣶⡸⣟⡾⢽⣿⡟⠁⠀⣰⣫⠏⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⢧⠀⡼⠿⢧⡟⢷⣯⢱⡬⠿⢿⠀⣼⡿⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡁⠀⠀⠙⣿⣻⠇⠀⠀⢈⣷⣓⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠞⠁⠉⠓⢦⣀⠘⡏⢀⡴⠚⠉⠉⠻⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢮⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`}
+        </pre>
+
         <p>Get started by registering an account or browse existing users and tarantulas.</p>
-      </div>
+      </main>
     </div>
   );
 };
