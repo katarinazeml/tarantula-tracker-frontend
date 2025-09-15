@@ -41,14 +41,28 @@ const TarantulaForm: React.FC<Props> = ({ onSubmit }) => {
     setIsLoading(true);
 
     try {
+      // Properly format data for backend
       const formData = {
-        ...form,
         userId: form.userId ? Number(form.userId) : null,
+        name: form.name.trim(),
+        species: form.species.trim(),
+        commonName: form.commonName.trim() || null,
+        sex: form.sex || null,
+        // Convert date strings to proper format or null
+        acquisitionDate: form.acquisitionDate || null,
+        acquisitionSource: form.acquisitionSource.trim() || null,
+        birthDate: form.birthDate || null,
+        // Convert to numbers or null
         legSpan: form.legSpan ? parseFloat(form.legSpan) : null,
         weight: form.weight ? parseFloat(form.weight) : null,
+        enclosureType: form.enclosureType || null,
+        enclosureSize: form.enclosureSize.trim() || null,
+        substrateType: form.substrateType.trim() || null,
         substrateDepth: form.substrateDepth ? parseFloat(form.substrateDepth) : null,
-        acquisitionDate: form.acquisitionDate || null,
-        birthDate: form.birthDate || null,
+        temperatureRange: form.temperatureRange.trim() || null,
+        humidityRange: form.humidityRange.trim() || null,
+        notes: form.notes.trim() || null,
+        photoUrl: form.photoUrl.trim() || null
       };
 
       await onSubmit(formData);
@@ -75,9 +89,12 @@ const TarantulaForm: React.FC<Props> = ({ onSubmit }) => {
         photoUrl: ""
       });
     } catch (err: any) {
+      console.error("Form submission error:", err);
       // Handle different types of errors
       if (err.response?.data?.error) {
         setError(err.response.data.error);
+      } else if (err.response?.data?.message) {
+        setError(err.response.data.message);
       } else if (err.message) {
         setError(err.message);
       } else {
@@ -177,7 +194,6 @@ const TarantulaForm: React.FC<Props> = ({ onSubmit }) => {
                 <option value="">Select sex</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
-                <option value="Unsexed">Unsexed</option>
                 <option value="Unknown">Unknown</option>
               </select>
             </div>
