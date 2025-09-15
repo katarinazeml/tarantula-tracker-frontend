@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
     <div className="container">
       <Header />
 
-      <main style={{ textAlign: 'center' }}>
+      <main style={{ textAlign: 'center', marginTop: '80px'}}>
         <h2 style={{ fontSize: "30px" }} >Welcome to Tarantula Tracker</h2>
 
         <pre style={{

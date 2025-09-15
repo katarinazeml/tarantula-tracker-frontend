@@ -7,7 +7,7 @@ const api = axios.create({
 // USERS
 export const getUsers = () => api.get("/users");
 export const createUser = (data: any) => api.post("/users", data);
-export const loginUser = (data: any) => api.post("/auth/login", data); // NEW
+export const loginUser = (data: any) => api.post("/auth/login", data);
 export const updateUser = (id: number, data: any) => api.put(`/users/${id}`, data);
 export const deleteUser = async (id: number) => {
     try {
@@ -20,6 +20,7 @@ export const deleteUser = async (id: number) => {
 
 // TARANTULAS
 export const getTarantulas = () => api.get("/tarantulas");
+export const getTarantulaById = (id: number) => api.get(`/tarantulas/${id}`); // NEW
 export const createTarantula = (data: any) => api.post("/tarantulas", data);
 export const updateTarantula = (id: number, data: any) => api.put(`/tarantulas/${id}`, data);
 export const deleteTarantula = (id: number) => api.delete(`/tarantulas/${id}`);

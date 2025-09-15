@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getUsers, deleteUser } from "../api/api";
+import { getUsers } from "../api/api";
 
 const UsersPage: React.FC = () => {
   const [users, setUsers] = useState<any[]>([]);
   const [error, setError] = useState<string>("");
-  const [deletingId, setDeletingId] = useState<number | null>(null);
 
   const fetchUsers = async () => {
     try {
@@ -21,31 +20,6 @@ const UsersPage: React.FC = () => {
     fetchUsers();
   }, []);
 
-  const handleDelete = async (id: number, username: string) => {
-    if (!window.confirm(`Are you sure you want to delete user "${username}"? This action cannot be undone.`)) {
-      return;
-    }
-
-    setDeletingId(id);
-    setError("");
-
-    try {
-      await deleteUser(id);
-      await fetchUsers();
-    } catch (err: any) {
-      console.error("Delete error:", err);
-      if (err.response?.data?.error) {
-        setError(`Failed to delete user: ${err.response.data.error}`);
-      } else if (err.message) {
-        setError(`Failed to delete user: ${err.message}`);
-      } else {
-        setError("Failed to delete user. Please try again.");
-      }
-    } finally {
-      setDeletingId(null);
-    }
-  };
-
   return (
     <div className="container">
       <div style={{ marginBottom: '24px' }}>
@@ -56,19 +30,6 @@ const UsersPage: React.FC = () => {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
         <h1>All Users</h1>
-        <Link
-          to="/login"
-          style={{
-            backgroundColor: '#a855f7',
-            color: 'white',
-            padding: '8px 16px',
-            borderRadius: '6px',
-            textDecoration: 'none',
-            fontSize: '14px'
-          }}
-        >
-          + Register New User
-        </Link>
       </div>
 
       {error && (
@@ -98,16 +59,6 @@ const UsersPage: React.FC = () => {
                   User ID: {u.id} • Created: {new Date(u.createdAt).toLocaleDateString()}
                 </div>
               </div>
-              <button
-                onClick={() => handleDelete(u.id, u.username)}
-                disabled={deletingId === u.id}
-                style={{
-                  opacity: deletingId === u.id ? 0.6 : 1,
-                  cursor: deletingId === u.id ? 'not-allowed' : 'pointer'
-                }}
-              >
-                {deletingId === u.id ? 'Deleting...' : 'Delete'}
-              </button>
             </li>
           ))}
         </ul>

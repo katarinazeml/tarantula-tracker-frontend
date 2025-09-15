@@ -46,7 +46,7 @@ const Header: React.FC = () => {
           <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
             <h1 style={{
               margin: 0,
-              fontSize: '24px',
+              fontSize: '30px',
               textShadow: '0 0 15px rgba(232, 121, 249, 0.8), 2px 2px 4px rgba(0, 0, 0, 1)',
               cursor: 'pointer'
             }}>
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
         }}>
           <pre style={{
             fontFamily: 'monospace',
-            fontSize: '6px',
+            fontSize: '7px',
             color: '#a855f7',
             lineHeight: '1',
             margin: 0,

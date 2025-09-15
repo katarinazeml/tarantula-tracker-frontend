@@ -26,7 +26,10 @@ const TarantulaListPage: React.FC = () => {
     fetchTarantulas();
   }, []);
 
-  const handleDelete = async (id: number, name: string) => {
+  const handleDelete = async (e: React.MouseEvent, id: number, name: string) => {
+    e.preventDefault(); // Prevent navigation to detail page
+    e.stopPropagation(); // Stop event bubbling
+
     if (!window.confirm(`Are you sure you want to delete "${name}"? This action cannot be undone.`)) {
       return;
     }
@@ -101,55 +104,74 @@ const TarantulaListPage: React.FC = () => {
         <ul className="tarantula-list">
           {tarantulas.map((t) => (
             <li key={t.id}>
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                  <strong style={{ fontSize: '18px', color: '#e5e7eb' }}>{t.name}</strong>
-                  {t.photoUrl && (
-                    <img
-                      src={t.photoUrl}
-                      alt={t.name}
-                      style={{
-                        width: '40px',
-                        height: '40px',
-                        borderRadius: '50%',
-                        objectFit: 'cover',
-                        border: '2px solid rgba(168, 85, 247, 0.3)'
-                      }}
-                    />
+              <Link
+                to={`/tarantulas/${t.id}`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  width: '100%'
+                }}
+              >
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                    <strong style={{
+                      fontSize: '18px',
+                      color: '#e5e7eb',
+                      transition: 'color 0.3s ease'
+                    }}>
+                      {t.name}
+                    </strong>
+                    {t.photoUrl && (
+                      <img
+                        src={t.photoUrl}
+                        alt={t.name}
+                        style={{
+                          width: '40px',
+                          height: '40px',
+                          borderRadius: '50%',
+                          objectFit: 'cover',
+                          border: '2px solid rgba(168, 85, 247, 0.3)'
+                        }}
+                      />
+                    )}
+                  </div>
+
+                  <div style={{ color: '#c084fc', marginBottom: '4px' }}>
+                    <em>{t.species}</em>
+                    {t.commonName && <span> ({t.commonName})</span>}
+                  </div>
+
+                  <div style={{ fontSize: '12px', color: '#9ca3af', display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                    {t.sex && <span>Sex: {t.sex}</span>}
+                    {t.legSpan && <span>Leg Span: {t.legSpan}cm</span>}
+                    {t.weight && <span>Weight: {t.weight}g</span>}
+                    <span>Owner ID: {t.userId}</span>
+                  </div>
+
+                  {t.notes && (
+                    <div style={{
+                      fontSize: '13px',
+                      color: '#d1d5db',
+                      marginTop: '8px',
+                      fontStyle: 'italic',
+                      maxWidth: '400px'
+                    }}>
+                      {t.notes.length > 100 ? `${t.notes.substring(0, 100)}...` : t.notes}
+                    </div>
                   )}
                 </div>
-
-                <div style={{ color: '#c084fc', marginBottom: '4px' }}>
-                  <em>{t.species}</em>
-                  {t.commonName && <span> ({t.commonName})</span>}
-                </div>
-
-                <div style={{ fontSize: '12px', color: '#9ca3af', display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-                  {t.sex && <span>Sex: {t.sex}</span>}
-                  {t.legSpan && <span>Leg Span: {t.legSpan}cm</span>}
-                  {t.weight && <span>Weight: {t.weight}g</span>}
-                  <span>Owner ID: {t.userId}</span>
-                </div>
-
-                {t.notes && (
-                  <div style={{
-                    fontSize: '13px',
-                    color: '#d1d5db',
-                    marginTop: '8px',
-                    fontStyle: 'italic',
-                    maxWidth: '400px'
-                  }}>
-                    {t.notes.length > 100 ? `${t.notes.substring(0, 100)}...` : t.notes}
-                  </div>
-                )}
-              </div>
+              </Link>
 
               <button
-                onClick={() => handleDelete(t.id, t.name)}
+                onClick={(e) => handleDelete(e, t.id, t.name)}
                 disabled={deletingId === t.id}
                 style={{
                   opacity: deletingId === t.id ? 0.6 : 1,
-                  cursor: deletingId === t.id ? 'not-allowed' : 'pointer'
+                  cursor: deletingId === t.id ? 'not-allowed' : 'pointer',
+                  marginLeft: '12px'
                 }}
               >
                 {deletingId === t.id ? 'Deleting...' : 'Delete'}
