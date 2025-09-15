@@ -49,7 +49,7 @@ const UsersPage: React.FC = () => {
   return (
     <div className="container">
       <div style={{ marginBottom: '24px' }}>
-        <Link to="/" style={{ color: '#2563eb', textDecoration: 'none' }}>
+        <Link to="/" style={{ color: '#a855f7', textDecoration: 'none' }}>
           ← Back to Home
         </Link>
       </div>
@@ -59,7 +59,7 @@ const UsersPage: React.FC = () => {
         <Link
           to="/login"
           style={{
-            backgroundColor: '#2563eb',
+            backgroundColor: '#a855f7',
             color: 'white',
             padding: '8px 16px',
             borderRadius: '6px',

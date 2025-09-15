@@ -7,11 +7,11 @@ const HomePage: React.FC = () => {
       <Header />
 
       <main style={{ textAlign: 'center' }}>
-        <h2>Welcome to Tarantula Tracker</h2>
+        <h2 style={{ fontSize: "30px" }} >Welcome to Tarantula Tracker</h2>
 
         <pre style={{
           fontFamily: 'monospace',
-          fontSize: '12px',
+          fontSize: '20px',
           color: '#a855f7',
           textAlign: 'center',
           marginBottom: '24px',
@@ -35,7 +35,9 @@ const HomePage: React.FC = () => {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`}
         </pre>
 
-        <p>Get started by registering an account or browse existing users and tarantulas.</p>
+            <p style={{ fontSize: "23px" }}>
+              Get started by registering an account or browse existing users and tarantulas.
+            </p>
       </main>
     </div>
   );
