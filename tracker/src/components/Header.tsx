@@ -33,12 +33,15 @@ const Header: React.FC = () => {
       }}>
         {/* Left side content */}
         <div style={{ flex: 1 }}>
-          <h1 style={{
-            margin: '0 0 16px 0',
-            textShadow: '0 0 15px rgba(232, 121, 249, 0.8), 2px 2px 4px rgba(0, 0, 0, 1)'
-          }}>
-            Tarantula Tracker
-          </h1>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <h1 style={{
+              margin: '0 0 16px 0',
+              textShadow: '0 0 15px rgba(232, 121, 249, 0.8), 2px 2px 4px rgba(0, 0, 0, 1)',
+              cursor: 'pointer'
+            }}>
+              Tarantula Tracker
+            </h1>
+          </Link>
 
           <p style={{
             marginBottom: '24px',
@@ -86,7 +89,7 @@ const Header: React.FC = () => {
               backgroundColor: 'rgba(168, 85, 247, 0.1)',
               border: '1px solid rgba(168, 85, 247, 0.3)',
               display: 'inline-block'
-            }}>Tarantulas</Link>
+            }}>My Tarantulas</Link>
           </nav>
         </div>
 
@@ -104,18 +107,18 @@ const Header: React.FC = () => {
             margin: 0,
             textShadow: '0 0 5px rgba(168, 85, 247, 0.5)'
           }}>
-{`⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⣿⣿⣿⣷⣼⣿⠀⣴⠾⠷⠶⠦⡄⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢠⡤⢶⣦⣾⣿⣿⣿⣿⣿⣿⣿⠀⣿⣶⣶⣦⣄⠳⣤⣤⠄⠀⠀⠀
-⠀⠀⠀⢀⣼⣳⡿⢻⣿⣿⣿⣿⣿⣿⣿⣿⣶⣿⣿⣗⠈⠙⠻⣶⣄⡀⠀⠀⠀
-⠀⠀⠀⣰⠿⠁⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⠈⠳⣤⠀⠀
-⠀⠀⢀⡟⠀⢰⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠁⠈⠻⣶⣄⠀⠀⠈⠛⢦
-⠀⣀⡼⠃⠀⣼⡟⠀⠀⢸⣿⡿⠉⣿⡿⠿⠛⣿⡄⠀⠀⠀⠙⠿⣆⠀⠀⠀⠈
-⠈⠁⠀⠀⢸⡟⠀⠀⠀⢸⣿⠀⠀⣿⠁⠀⠀⠈⠃⠀⠀⠀⠀⠀⠘⢷⡄⠀⠀
-⠀⠀⠀⠀⣼⠃⠀⠀⠀⢸⡟⠀⠀⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⡆⠀
-⠀⠀⠀⣠⡏⠀⠀⠀⠀⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠻⠃⠀⠀⠀⠀⣻⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`}
+{`　　　　　　　　　　　　　　　　 　　　　　　　　　　　　　　　
+　　　　　　　　　 ⢴⣿⣿⣿⣷⣼⣿　⣴⠾⠷⠶⠦⡄　　　　　　　　
+　　　　 ⢠⡤⢶⣦⣾⣿⣿⣿⣿⣿⣿⣿　⣿⣶⣶⣦⣄⠳⣤⣤⠄　　　　
+　　　　⢀⣼⣳⡿⢻⣿⣿⣿⣿⣿⣿⣿⣶⣿⣿⣗　⠈⠙⠻⣶⣄⡀　　　
+　　　　⣰⠿　⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄　　　⠈⠳⣤　　
+　　　⢀⡟　⢰⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⠉　　⠈⠻⣶⣄　　　⠈⠛⢦
+　⣀⡼⠃　⣼⡟　　　⢸⣿⡿⠉⣿⡿⠿⠛⣿⡄　　　　⠙⠿⣆　　　⠈
+　⠈　　　⢸⡟　　　　⢸⣿　　⣿　　　　⠈⠃　　　　　　　⠘⢷⡄　
+　　　　　⣼⠃　　　　　⢸⡟　　⡿　　　　　　　　　　　　　　　⠈⢿⡆
+　　　　⣠⡇　　　　　　⣼⡇　　　　　　　　　　　　　　　　　　　　
+　　　　⠻⠃　　　　　　⣻⡇　　　　　　　　　　　　　　　　　　　　
+　　　　　　　　　　　　⠻⠇　　　　　　　　　　　　　　　　　　　　`}
           </pre>
         </div>
       </div>

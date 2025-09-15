@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import UsersPage from './pages/UsersPage';
-import TarantulasPage from './pages/TarantulasPage';
+import TarantulaListPage from './pages/TarantulaListPage';
+import AddTarantulaPage from './pages/AddTarantulaPage';
 import './App.css';
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/users" element={<UsersPage />} />
-        <Route path="/tarantulas" element={<TarantulasPage />} />
+        <Route path="/tarantulas" element={<TarantulaListPage />} />
+        <Route path="/tarantulas/new" element={<AddTarantulaPage />} />
       </Routes>
     </Router>
   );
