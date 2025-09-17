@@ -6,6 +6,7 @@ import UsersPage from './pages/UsersPage';
 import TarantulaListPage from './pages/TarantulaListPage';
 import AddTarantulaPage from './pages/AddTarantulaPage';
 import TarantulaDetailPage from './pages/TarantulaDetailPage';
+import FriendsPage from './pages/FriendsPage';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/tarantulas" element={<TarantulaListPage />} />
             <Route path="/tarantulas/new" element={<AddTarantulaPage />} />
             <Route path="/tarantulas/:id" element={<TarantulaDetailPage />} />
+            <Route path="/friends" element={<FriendsPage />} />
           </Routes>
         </main>
         <Footer />

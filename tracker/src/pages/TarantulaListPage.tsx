@@ -27,8 +27,8 @@ const TarantulaListPage: React.FC = () => {
   }, []);
 
   const handleDelete = async (e: React.MouseEvent, id: number, name: string) => {
-    e.preventDefault(); // Prevent navigation to detail page
-    e.stopPropagation(); // Stop event bubbling
+    e.preventDefault();
+    e.stopPropagation();
 
     if (!window.confirm(`Are you sure you want to delete "${name}"? This action cannot be undone.`)) {
       return;
@@ -103,19 +103,17 @@ const TarantulaListPage: React.FC = () => {
       ) : tarantulas.length > 0 ? (
         <ul className="tarantula-list">
           {tarantulas.map((t) => (
-            <li key={t.id}>
+            <li key={t.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <Link
                 to={`/tarantulas/${t.id}`}
                 style={{
                   textDecoration: 'none',
                   color: 'inherit',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  width: '100%'
+                  flex: 1,
+                  display: 'block'
                 }}
               >
-                <div style={{ flex: 1 }}>
+                <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
                     <strong style={{
                       fontSize: '18px',
@@ -171,7 +169,8 @@ const TarantulaListPage: React.FC = () => {
                 style={{
                   opacity: deletingId === t.id ? 0.6 : 1,
                   cursor: deletingId === t.id ? 'not-allowed' : 'pointer',
-                  marginLeft: '12px'
+                  marginLeft: '12px',
+                  flexShrink: 0
                 }}
               >
                 {deletingId === t.id ? 'Deleting...' : 'Delete'}

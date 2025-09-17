@@ -94,6 +94,20 @@ const Header: React.FC = () => {
               display: 'inline-block',
               fontSize: '14px'
             }}>My Tarantulas</Link>
+
+            <span style={{ margin: '0 8px', color: '#6b7280' }}>|</span>
+
+            <Link to="/friends" style={{
+                color: '#a855f7',
+                textDecoration: 'none',
+                padding: '8px 12px',
+                borderRadius: '6px',
+                transition: 'all 0.3s ease',
+                backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                border: '1px solid rgba(168, 85, 247, 0.3)',
+                display: 'inline-block',
+                fontSize: '14px'
+                }}>My Friends</Link>
           </nav>
         </div>
 
