@@ -29,6 +29,7 @@ User Management
 User Registration: Create accounts to manage personal collections
 User Authentication: Secure login system
 User Profiles: View and manage user information
+User friendship requests: add users as friends
 
 Technology Stack
 
